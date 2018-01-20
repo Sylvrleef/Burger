@@ -1,7 +1,15 @@
+body {
+  background-color: orange;
+}
+
 li {
   padding: 5px;
   margin: 5px;
   background: #faebd7;
+}
+
+img {
+  margin: 40px;
 }
 
 .label {

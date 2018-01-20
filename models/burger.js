@@ -1,6 +1,5 @@
 const orm = require("../config/orm.js");
-
-var connection = require("../config/connection.js");
+const connection = require("../config/connection.js");
 
 var burger = {
   selectAll: function(cb) {
@@ -16,7 +15,7 @@ var burger = {
   },
 
   updateOne: function(objColVals, condition, cb) {
-    orm.updateOne("burgers", cols, vals, function(res) {
+    orm.updateOne("burgers", objColVals, condition, function(res) {
       cb(res);
     });
   }

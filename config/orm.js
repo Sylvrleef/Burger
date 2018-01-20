@@ -29,7 +29,7 @@ function objToSql(ob) {
 var orm = {
 
   selectAll: function(tableInput, cb) {
-    var queryString = "SELECT * FROM burgers;";
+    var queryString = "SELECT * FROM " + tableInput + ";";
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
@@ -39,7 +39,14 @@ var orm = {
   },
 
   insertOne: function(table, cols, vals, cb) {
-    var queryString = "INSERT INTO burgers (burger_name) VALUES (" + question(vals.length) + ")";
+    var queryString = "INSERT INTO " + table;
+
+    queryString += " (";
+    queryString += cols.toString();
+    queryString += ") ";
+    queryString += "VALUES (";
+    queryString += question(vals.length);
+    queryString += ") ";
 
     console.log(queryString);
 
@@ -52,7 +59,12 @@ var orm = {
   },
 
   updateOne: function (table, objColVals, condition, cb) {
-    var queryString = "UPDATE burgers SET " + objToSql(objColVals) + " WHERE " + condition;
+    var queryString = "UPDATE " + table;
+
+    queryString += " SET ";
+    queryString += objToSql(objColVals);
+    queryString += " WHERE ";
+    queryString += condition;
 
     console.log(queryString);
 

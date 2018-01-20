@@ -1,11 +1,9 @@
-// Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
   $(".change-devoured").on("click", function(event) {
     var id = $(this).data("id");
-    var newDevoured = $(this).data("newdevoured");
 
     var newDevouredState = {
-      devoured: newDevoured
+      devoured: true
     };
 
     $.ajax("/api/burgers/" + id, {
@@ -13,7 +11,7 @@ $(function() {
       data: newDevouredState
     }).then(
       function() {
-        console.log("changed devoured to", newDevoured);
+        console.log("changed devoured to", newDevouredState);
         location.reload();
       }
     );
@@ -21,13 +19,13 @@ $(function() {
 
   $(".create-form").on("submit", function(event) {
     event.preventDefault();
+    console.log("clicked");
 
     var newBurger = {
-      burger_name: $("#ca").val().trim(),
-      devoured: $("[name=devoured]:checked").val().trim()
+      burger_name: $("#ca").val().trim()
     };
-    
-    $.ajax("/api/burgers", {
+
+    $.ajax("/api/burgers/", {
       type: "POST",
       data: newBurger
     }).then(

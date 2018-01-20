@@ -4,12 +4,12 @@ var connection;
 if (process.env.JAWSBD_URL) {
   connection = mysql.createConnection(process.env.JAWSBD_URL);
 } else {
-  cconnection = mysql.createConnection({
+  connection = mysql.createConnection({
     port: 3306,
     host: "localhost",
     user: "root",
     password: "^yours001",
-    database: "cat_db"
+    database: "burgers_db"
   });
 
   connection.connect(function(err) {
