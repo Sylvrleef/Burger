@@ -6,11 +6,15 @@
     <h2>Burgers ready to eat!</h2>
 
     <ul>
+
       {{#each burgers}}
-        {{#unless devoured}}
-          {{> burgers/burger-block}}
+        {{#unless this.devoured}}
+          <li>
+            {{this.burger_name}} {{> burgers/burger-block}}
+          </li>
         {{/unless}}
       {{/each}}
+
     </ul>
   </div>
 
@@ -19,8 +23,10 @@
 
     <ul>
       {{#each burgers}}
-        {{#if devoured}}
-          {{> burgers/burger-block}}
+        {{#if this.devoured}}
+          <li>
+            {{this.burger_name}} {{> burgers/burger-block}}
+          </li>
         {{/if}}
       {{/each}}
     </ul>
