@@ -1,7 +1,7 @@
 const orm = require("../config/orm.js");
 const connection = require("../config/connection.js");
 
-var burger = {
+var burgers = {
   selectAll: function(cb) {
     orm.selectAll("burgers", function(result){
       cb(result);
@@ -21,4 +21,4 @@ var burger = {
   }
 };
 
-module.exports = burger;
+module.exports = burgers;
