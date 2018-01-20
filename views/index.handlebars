@@ -5,31 +5,25 @@
   <div class="col-md-6">
     <h2>Burgers ready to eat!</h2>
 
-    <ul>
-
+    <ol>
       {{#each burgers}}
-        {{#unless this.devoured}}
-          <li>
-            {{this.burger_name}} {{> burgers/burger-block}}
-          </li>
+        {{#unless devoured}}
+          {{> burgers/burger-block devoured=false}}
         {{/unless}}
       {{/each}}
-
-    </ul>
+    </ol>
   </div>
 
   <div class="col-md-6">
     <h2>Devoured burgers!</h2>
 
-    <ul>
+    <ol>
       {{#each burgers}}
-        {{#if this.devoured}}
-          <li>
-            {{this.burger_name}} {{> burgers/burger-block}}
-          </li>
+        {{#if devoured}}
+          {{> burgers/burger-block devoured=true}}
         {{/if}}
       {{/each}}
-    </ul>
+    </ol>
   </div>
 </div>
 

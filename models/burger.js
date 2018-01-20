@@ -3,8 +3,8 @@ const connection = require("../config/connection.js");
 
 var burger = {
   selectAll: function(cb) {
-    orm.selectAll("burgers", function(res){
-      cb(res);
+    orm.selectAll("burgers", function(result){
+      cb(result);
     });
   },
 

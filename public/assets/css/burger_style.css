@@ -3,6 +3,7 @@ body {
 }
 
 li {
+  text-align: left;
   padding: 5px;
   margin: 5px;
   background: #faebd7;
